@@ -1,0 +1,11 @@
+
+# beanserver
+type beanserver, domain, coredomain;
+type beanserver_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(beanserver)
+
+allow beanserver servicemanager:binder { call transfer };
+allow beanserver beanserver_service:service_manager add;
+
+

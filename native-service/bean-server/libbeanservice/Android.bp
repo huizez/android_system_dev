@@ -1,0 +1,81 @@
+cc_library_shared {
+    name: "libbeanservice",
+
+    srcs: [
+        "BeanService.cpp",
+    ],
+
+    header_libs: [
+    ],
+
+    shared_libs: [
+        "libbeanservice_aidl",
+        "libbase",
+        "libui",
+        "liblog",
+        "libutils",
+        "libbinder",
+        "libcutils",
+    ],
+
+    static_libs: [
+    ],
+
+    include_dirs: [
+    ],
+
+    export_shared_lib_headers: [
+        "libbinder",
+        "libbeanservice_aidl",
+    ],
+
+    export_include_dirs: ["."],
+
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-ignored-qualifiers",
+    ],
+
+}
+
+cc_library_shared {
+    name: "libbeanservice_aidl",
+
+    aidl: {
+        export_aidl_headers: true,
+        local_include_dirs: ["aidl"],
+        include_dirs: [
+        ],
+    },
+
+    srcs: [
+        ":beanservice_aidl",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libbinder",
+        "libgui",
+    ],
+
+
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wextra",
+    ],
+}
+
+filegroup {
+    name: "beanservice_aidl",
+    srcs: [
+        "aidl/com/zzh/IBeanService.aidl",
+    ],
+    path: "aidl",
+}
+

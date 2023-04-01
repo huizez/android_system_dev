@@ -1,0 +1,3 @@
+service beanserver /system/bin/beanserver
+    class main
+    oneshot

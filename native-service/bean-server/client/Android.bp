@@ -1,0 +1,26 @@
+cc_binary {
+    name: "beanserver_client",
+
+    srcs: ["BeanServer_client_test.cpp"],
+
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+
+    compile_multilib: "first",
+
+    shared_libs: [
+        "libbeanservice_aidl",
+        "libbase",
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libbinder",
+        "libgui",
+    ],
+
+    include_dirs: ["."],
+}

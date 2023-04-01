@@ -1,0 +1,32 @@
+cc_binary {
+    name: "beanserver",
+
+    srcs: [
+        "main_beanserver.cpp"
+    ],
+
+    header_libs: [
+    ],
+
+    shared_libs: [
+        "libbeanservice",
+        "liblog",
+        "libutils",
+        "libui",
+        "libgui",
+        "libbinder",
+        "libhidlbase",
+    ],
+    compile_multilib: "first",
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+
+    init_rc: ["beanserver.rc"],
+
+    vintf_fragments: [
+    ],
+}
